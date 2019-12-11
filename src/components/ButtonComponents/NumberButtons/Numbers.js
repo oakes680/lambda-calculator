@@ -9,17 +9,17 @@ import { numbers } from '../../../data'
 */
 //Import your array data to from the provided data file
 
-const Numbers = () => {
+const Numbers = (props) => {
   // STEP 2 - add the imported data to state
-  const [dataNum, setDataNum] = useState(0)
-
+  const [dataNum, setDataNum] = useState(numbers)
+console.log('numbers', props)
  
 
   return (
-    <div class='numDiv'>
+    <div className='numDiv'>
       {
-       numbers.map((numButton, index) => (
-        <NumberButton key={index} numButton={numButton} setDataNum={setDataNum} dataNum={dataNum} />
+       dataNum.map((numButton, index) => (
+        <NumberButton key={index} numButton={numButton} addNumber={props.addNumber}/>
       ))}
     </div>
   );
@@ -27,3 +27,4 @@ const Numbers = () => {
 
 
 export default Numbers
+
