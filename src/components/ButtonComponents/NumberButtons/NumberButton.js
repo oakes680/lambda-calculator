@@ -1,12 +1,16 @@
 import React from "react";
+import Display from "../../DisplayComponents/Display"
 
 const NumberButton = (props) => {
-  const {numbs, setNumbs} = props
+  const numButton = props.numButton
+  const setDataNum = props.setDataNum
+  const DataNum = props.DataNum
   return (
-    <button className="numbs">
-      {/* Display a button element rendering the data being passed down from the parent container on props */
-      props.numButton}
-      {console.log(numbs)}
+    <button className="numbs" onClick= {() => {setDataNum(numButton);
+      return <Display numButton={numButton}/>
+    }} >
+      {props.numButton} 
+
     </button>
   );
 };
